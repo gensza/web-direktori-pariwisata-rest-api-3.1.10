@@ -102,38 +102,26 @@ class Direktori_model extends CI_Model
 
     function get_search($kode_prov, $kode_kab, $kategori, $nama_komersial)
     {
-        $query_db = 'SELECT * FROM direktori_new';
+        $query_db = 'SELECT * FROM direktori_new WHERE 1=1';
         $array_condition = [];
         if ($kode_prov != null) {
-            if (strpos($query_db, "WHERE") != 24) {
-                $query_db .= ' WHERE kode_prov = ?';
-            } else {
-                $query_db .= ' and kode_prov = ?';
-            }
+
+            $query_db .= ' and kode_prov = ?';
             array_push($array_condition, $kode_prov);
         }
         if ($kode_kab != null) {
-            if (strpos($query_db, "WHERE") != 24) {
-                $query_db .= ' WHERE kode_kab = ?';
-            } else {
-                $query_db .= ' and kode_kab = ?';
-            }
+
+            $query_db .= ' and kode_kab = ?';
             array_push($array_condition, $kode_kab);
         }
         if ($kategori != null) {
-            if (strpos($query_db, "WHERE") != 24) {
-                $query_db .= ' WHERE kategori = ?';
-            } else {
-                $query_db .= ' and kategori = ?';
-            }
+
+            $query_db .= ' and kategori = ?';
             array_push($array_condition, $kategori);
         }
         if ($nama_komersial != null) {
-            if (strpos($query_db, "WHERE") != 24) {
-                $query_db .= ' WHERE nama_komersial LIKE "%' . $nama_komersial . '%"';
-            } else {
-                $query_db .= ' and nama_komersial LIKE "%' . $nama_komersial . '%"';
-            }
+
+            $query_db .= ' and nama_komersial LIKE "%' . $nama_komersial . '%"';
         }
 
         $query = $this->db->query($query_db, $array_condition);
