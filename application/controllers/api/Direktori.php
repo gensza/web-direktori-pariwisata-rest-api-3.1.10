@@ -405,37 +405,7 @@ class Direktori extends CI_Controller
         $kategori = $this->get('kategori');
         $nama_komersial = $this->get('nama-komersial');
 
-        if ($kode_prov != null) {
-            if ($kode_kab != null) {
-                if ($kategori != null) {
-                    if ($nama_komersial != null) {
-                        $direktori = $this->Direktori_model->get_search($kode_prov, $kode_kab, $kategori, $nama_komersial);
-                    } else {
-                        $direktori = $this->Direktori_model->get_search($kode_prov, $kode_kab, $kategori, null);
-                    }
-                } else {
-                    if ($nama_komersial != null) {
-                        $direktori = $this->Direktori_model->get_search($kode_prov, $kode_kab, null, $nama_komersial);
-                    } else {
-                        $direktori = $this->Direktori_model->get_search($kode_prov, $kode_kab, null, null);
-                    }
-                }            
-            } else {
-                if ($kategori != null) {
-                    if ($nama_komersial != null) {
-                        $direktori = $this->Direktori_model->get_search(null, $kode_kab, $kategori, $nama_komersial);
-                    } else {
-                        $direktori = $this->Direktori_model->get_search(null, $kode_kab, $kategori, null);
-                    }
-                } else {
-                    if ($nama_komersial != null) {
-                        $direktori = $this->Direktori_model->get_search(null, $kode_kab, null, $nama_komersial);                    
-                    } else {
-                        $direktori = $this->Direktori_model->get_search(null, $kode_kab, null, null);
-                    }
-                }
-            }            
-        }
+        $direktori = $this->Direktori_model->get_search($kode_prov, $kode_kab, $kategori, $nama_komersial);
 
         if ($direktori) {
             $this->response([
