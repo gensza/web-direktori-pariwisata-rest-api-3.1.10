@@ -419,4 +419,23 @@ class Direktori extends CI_Controller
             ], 404);
         }
     }
+
+    public function detail_get()
+    {
+        $id = $this->get('id');
+
+        $direktori = $this->Direktori_model->get_detail($id);
+
+        if ($direktori) {
+            $this->response([
+                'status' => true,
+                'data' => $direktori
+            ], 200);
+        } else {
+            $this->response([
+                'status' => false,
+                'message' => 'data not found'
+            ], 404);
+        }
+    }
 }

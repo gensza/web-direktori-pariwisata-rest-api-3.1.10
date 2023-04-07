@@ -130,6 +130,13 @@ class Direktori_model extends CI_Model
         // return strpos((string) $query_db, "WHERE") . " " . $query_db;
     }
 
+    function get_detail($id)
+    {
+        $query = $this->db->query("SELECT * FROM direktori_new WHERE id='$id'");
+
+        return $query->result();
+    }
+
     function get_akomodasi_sekitar($kode_prov, $kode_kab)
     {
 
