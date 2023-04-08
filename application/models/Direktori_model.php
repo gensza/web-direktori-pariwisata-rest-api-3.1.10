@@ -195,7 +195,7 @@ class Direktori_model extends CI_Model
     function get_ringkas_akomodasi($kode_prov, $nama_prov)
     {
         $query = $this->db->query('
-                SELECT kode_prov, nama_prov, 
+                SELECT kode_prov, nama_prov, photo_url,
                 COUNT(id) AS jumlah 
                 FROM `direktori_new` 
                 WHERE kategori = "akomodasi" 
@@ -208,7 +208,7 @@ class Direktori_model extends CI_Model
     function get_ringkas_PMM($kode_prov, $nama_prov)
     {
         $query = $this->db->query('
-                SELECT kode_prov, nama_prov, 
+                SELECT kode_prov, nama_prov,photo_url, 
                 COUNT(id) AS jumlah 
                 FROM `direktori_new` 
                 WHERE kategori = "PMM" 
@@ -221,7 +221,7 @@ class Direktori_model extends CI_Model
     function get_ringkas_DTW($kode_prov, $nama_prov)
     {
         $query = $this->db->query('
-                SELECT kode_prov, nama_prov, 
+                SELECT kode_prov, nama_prov, photo_url,
                 COUNT(id) AS jumlah 
                 FROM `direktori_new` 
                 WHERE kategori = "DTW" 
